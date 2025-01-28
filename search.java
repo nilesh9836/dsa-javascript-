@@ -6,6 +6,7 @@ class Main {
         System.out.println("Try programiz.pro");
         int[] arr = new int[]{12,13,14,45,48,56};
         System.out.println(binarySearch(arr, 45,0,5));
+        System.out.println(binarySearchIteration(arr, 45));
     }
     
     public static int linearSearch(int[] arr, int k) {
@@ -14,7 +15,20 @@ class Main {
         }
         return -1;
     }
-    
+    public static int binarySearchIteration(int[] arr,int k) {
+        int l=0, r= arr.length;
+        int m = (l+r)/2;
+        while(l<=r) {
+            if(k<arr[m]) {
+                r=m-1;
+            } else if(k>arr[m]) {
+                l = m+1;
+            } else if(k == arr[m]) {
+                return m;
+            }
+        }
+        return -1;
+    }
     public static int binarySearch(int[] arr, int k,int s,int end) {
        
         int m = (s+end)/2 + 1;
@@ -29,7 +43,4 @@ class Main {
         return -1;
     }
     
-    public static int  binarySearch(int[] arr, int k,int s,int end) {
-        
-    }
 }
